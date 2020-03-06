@@ -14,7 +14,7 @@
     <div id="app">
 
         <!-- TODO change header text to include name of activity -->
-        <h1 class="text-center">Time Tracker</h1>
+        <h1 class="text-center"> {{ activity }}! Time Tracker</h1>
 
         <div id="add-hours" class="card">
 
@@ -28,7 +28,7 @@
                     
                     <div class="form-group">
                         <!-- TODO change label message to include name of activity -->
-                        <label class="form-label" for="when">When did you do this activity?</label>
+                        <label class="form-label" for="when">When did you do {{ activity }}</label>
                         <!-- TODO v-model to app data property -->
                         <input id="when" class="form-control" type="date" >
                     </div>
@@ -106,8 +106,18 @@
 
     <script>
 
-      // TODO create vue app here 
-
+      // TODO create vue app here
+        let app = new Vue({
+            el: "#app",
+            data: {
+                activity: 'Practice Art'
+            },
+            filters: {
+                lowercase(text) {
+                    return text.toLowerCase(
+                }
+            }
+        })
     </script>
 
 </body>
